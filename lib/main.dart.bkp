@@ -1,0 +1,46 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(
+    MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(title: Text('Transferências')),
+        body: ListaTransferencia(),
+        floatingActionButton: FloatingActionButton(
+          child: Icon(Icons.add),
+        ),
+      ),
+    ),
+  );
+}
+
+class ListaTransferencia extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return Column(
+      children: [
+        ItemTransferencia('100.0', '1001'),
+        ItemTransferencia('200.0', '1002'),
+        ItemTransferencia('300.0', '1003'),
+      ],
+    );
+  }
+}
+
+class ItemTransferencia extends StatelessWidget {
+  final String valor;
+  final String numeroConta;
+  ItemTransferencia(this.valor, this.numeroConta);
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      child: ListTile(
+        leading: Icon(Icons.monetization_on),
+        title: Text(valor),
+        subtitle: Text(numeroConta),
+      ),
+    );
+  }
+}
